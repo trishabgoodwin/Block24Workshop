@@ -5,12 +5,20 @@ function App() {
 
   const [puppies, setPuppies] = useState(puppyList);
   const [featPupId, setFeatPupId] = useState(null);
+  const featuredPup = puppies.find((pup)=> pup.id === featPupId)
 
   console.log("puppyList:", featPupId)
+  console.log(featuredPup)
   return (
     <>
     {featPupId && (
-      <h1>{featPupId}</h1>
+      <div>
+      <h1>{featuredPup.name}</h1>
+      <ul>
+        <li>Age: {featuredPup.age}</li>
+        <li>Email: {featuredPup.email}</li>
+      </ul>
+      </div>
     )}
     <div className="App">
       {
