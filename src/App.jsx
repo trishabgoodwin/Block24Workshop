@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {puppyList} from "./data.js"
+import './index.css'
 
 function App() {
 
@@ -12,15 +13,16 @@ function App() {
   return (
     <>
     {featPupId && (
-      <div>
+      <div className="selectedPup">
       <h1>{featuredPup.name}</h1>
       <ul>
-        <li>Age: {featuredPup.age}</li>
-        <li>Email: {featuredPup.email}</li>
+        <li><strong>Age: </strong> {featuredPup.age}</li>
+        <li><strong>Email: </strong> {featuredPup.email}</li>
       </ul>
       </div>
     )}
     <div className="App">
+      <h2>Click a pup to learn more!</h2>
       {
         puppies.map((puppy) => {
              return <p onClick={()=>{setFeatPupId(puppy.id)}} key={puppy.id}>{puppy.name}</p>;
